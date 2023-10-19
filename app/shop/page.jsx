@@ -1,7 +1,4 @@
-'use client'
 import Card from "components/Card"
-import {useContext, useEffect} from "react"
-import { CartContext } from "@components/CartProvider"
 
 const products = [
     {
@@ -31,11 +28,6 @@ const products = [
 ]
 
 const Shop = () => {
-    const {cart, setCart} = useContext(CartContext)
-
-    useEffect(() => {
-        localStorage.setItem("cart", JSON.stringify(cart))
-    }, [cart])
 
     return (
         <div>
@@ -43,7 +35,7 @@ const Shop = () => {
             <div>
                 <div className="flex flex-wrap p-4 justify-center">
                     {products.map((product) => (
-                      <Card id={product.id} setCart={setCart} cart={cart} name={product.name} image={product.image} price={product.price} />
+                      <Card id={product.id} name={product.name} image={product.image} price={product.price} />
                     ))}
                 </div>
             </div>

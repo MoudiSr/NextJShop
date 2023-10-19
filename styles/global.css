@@ -34,7 +34,16 @@ body {
   padding: 1rem;
 }
 
-input[type='radio'] {
-  height: 20px;
+input[type="radio"] {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
   width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  transition: all 0.3s ease-in-out;
+}
+
+input[type="radio"]:checked {
+  
 }

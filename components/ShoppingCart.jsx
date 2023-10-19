@@ -21,6 +21,10 @@ export default function ShoppingCart({open, setOpen}) {
         localStorage.setItem("cart", JSON.stringify(cart))
     }, [cart])
 
+    const cartMessage = cart.map(item => {
+      return `${item.price}$:المبلغ, ${item.quantity}:الكمية, ${item.size}:الحجم, ${item.type}:الفرقة, ${item.name}`
+    }).join('\n') + `\n${total}$:المجموع`;
+
 
   return (
     <Transition.Root show={open} as={Fragment}>
@@ -82,9 +86,14 @@ export default function ShoppingCart({open, setOpen}) {
                                 <div className="ml-4 flex flex-1 flex-col">
                                   <div>
                                     <div className="flex justify-between text-base font-medium text-gray-900">
-                                      <h3>
-                                        <a>{product.name}</a>
-                                      </h3>
+                                      <div className='grid'>
+                                        <h3>
+                                          <a>{product.name}</a>
+                                        </h3>
+                                        <span className="font-[300] text-gray-500 text-sm">{product.type}</span>
+                                        {product.name === "قميص" && <span className='font-[300] text-gray-500 text-sm mr-2'>Size: {product.size}</span>} 
+                                      </div>
+                                      
                                       <p className="ml-4">${product.price}</p>
                                     </div>
                                   </div>
@@ -117,8 +126,8 @@ export default function ShoppingCart({open, setOpen}) {
                       <p className="mt-0.5 text-sm text-gray-500">Shipping and taxes calculated at checkout.</p>
                       <div className="mt-6">
                         <a
-                          href="#"
-                          className="flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700"
+                          href={`https://wa.me/+96178831474?text=${encodeURIComponent(cartMessage)}`}
+                          className="flex items-center justify-center rounded-md border border-transparent bg-[#444444] px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-[#333333]"
                         >
                           Checkout
                         </a>

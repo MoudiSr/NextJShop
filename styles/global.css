@@ -34,16 +34,28 @@ body {
   padding: 1rem;
 }
 
-input[type="radio"] {
+
+input[type=radio] {
   appearance: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  width: 20px;
-  height: 20px;
+  width: 25px;
+  height: 25px;
+  border: 1px solid #999;
   border-radius: 50%;
-  transition: all 0.3s ease-in-out;
+  display: inline-grid;
+  place-content: center;
 }
 
-input[type="radio"]:checked {
-  
+input[type=radio]::before {
+    content: "";
+    width: 10px;
+    height: 10px;
+    transform: scale(0);
+    transform-origin: bottom left;
+    background-color: #000;
+    clip-path: polygon(13% 50%, 34% 66%, 81% 2%, 100% 18%, 39% 100%, 0 71%);
 }
+
+input[type=radio]:checked::before {
+    transform: scale(1);
+}
+

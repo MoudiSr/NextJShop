@@ -35,7 +35,7 @@ const Shop = () => {
             <div>
                 <div className="flex flex-wrap p-4 justify-center">
                     {products.map((product) => (
-                      <Card id={product.id} name={product.name} image={product.image} price={product.price} />
+                      <Card {...product} />
                     ))}
                 </div>
             </div>

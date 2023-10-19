@@ -4,7 +4,7 @@ import React, {useState, useEffect} from "react"
 export const CartContext = React.createContext()
 
 const CartProvider = ({children}) => {
-    const [cart, setCart] = useState()
+    const [cart, setCart] = useState([])
 
     useEffect(() => {
         setCart(JSON.parse(localStorage.getItem("cart") || "[]"))

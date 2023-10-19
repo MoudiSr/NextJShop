@@ -21,9 +21,9 @@ export default function ShoppingCart({open, setOpen}) {
         localStorage.setItem("cart", JSON.stringify(cart))
     }, [cart])
 
-    const cartMessage = cart.map(item => {
-      return `${item.price}$:المبلغ, ${item.quantity}:الكمية, ${item.size}:الحجم, ${item.type}:الفرقة, ${item.name}`
-    }).join('\n') + `\n${total}$:المجموع`;
+    const cartMessage = cart.map((item, index) => {
+      return `${index+1}. ${item.name} الفرقة:${item.type} الحجم:${item.size} الكمية:${item.quantity} المبلغ:$${item.price}`
+    }).join('\n') + `\n\nالمجموع:${total}$`;
 
 
   return (
@@ -134,7 +134,7 @@ export default function ShoppingCart({open, setOpen}) {
                       </div>
                       <div className="mt-6 flex justify-center text-center text-sm text-gray-500">
                         <p>
-                          or
+                          or{' '}
                           <button
                             type="button"
                             className="font-medium text-indigo-600 hover:text-indigo-500"

@@ -3,6 +3,7 @@ import { Fragment, useEffect, useContext, useState } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import { XMarkIcon } from '@heroicons/react/24/outline'
 import { CartContext } from "@components/CartProvider"
+import { motion } from "framer-motion"
 
 export default function ShoppingCart({open, setOpen}) {
     const {cart, setCart} = useContext(CartContext)
@@ -74,8 +75,16 @@ export default function ShoppingCart({open, setOpen}) {
                       <div className="mt-8">
                         <div className="flow-root">
                           <ul role="list" className="-my-6 divide-y divide-gray-200">
-                            {cart.map(product => (
-                              <li key={product.id} className="flex py-6">
+                            {cart.map((product, index) => (
+                              <motion.li 
+                                initial={{ opacity: 0, x: -100 }}
+                                whileInView={{ opacity: 1, x: 0, transition: {delay: 0.05*index} }}
+                                viewport={{
+                                  once: true,
+                                }}
+                                key={product.id} 
+                                className="flex py-6"
+                              >
                                 <div className="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200">
                                   <img
                                     src={product.image}
@@ -111,7 +120,7 @@ export default function ShoppingCart({open, setOpen}) {
                                     </div>
                                   </div>
                                 </div>
-                              </li>
+                              </motion.li>
                             ))}
                           </ul>
                         </div>

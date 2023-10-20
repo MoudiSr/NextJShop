@@ -78,7 +78,7 @@ export default function ShoppingCart({open, setOpen}) {
                             {cart.map((product, index) => (
                               <motion.li 
                                 initial={{ opacity: 0, x: -100 }}
-                                whileInView={{ opacity: 1, x: 0, transition: {delay: 0.05*index} }}
+                                animate={{ opacity: 1, x: 0, transition: {delay: 0.25*(index)} }}
                                 viewport={{
                                   once: true,
                                 }}

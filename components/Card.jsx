@@ -79,7 +79,7 @@ const Card = ({id, name, image, price}) => {
                     <input type="radio" className="bg-[#ed1c24]" name={`type${id}`} value="جوالة" onChange={e => setType(e.target.value)}/>
                     <input type="radio" className="bg-[#f79326]" name={`type${id}`} value="قائد" onChange={e => setType(e.target.value)}/>
                 </div>
-                <a onClick={() => handleAdd()} className="flex items-center justify-center rounded-md border border-transparent bg-[#da0037] px-5 py-2.5 text-center font-medium text-white text-xl hover:cursor-pointer hover:bg-[#da0037d5]">
+                 <a onClick={() => handleAdd()} className="flex items-center justify-center rounded-md border border-transparent bg-[#da0037] px-5 py-2.5 text-center font-medium text-white text-xl hover:cursor-pointer hover:bg-[#da0037d5]">
                     <svg xmlns="http://www.w3.org/2000/svg" className="mr-2 h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
                     </svg>

@@ -3,6 +3,8 @@ import '@styles/global.css'
 import ShoppingCart from 'components/ShoppingCart'
 import {useState} from "react"
 import CartProvider from '@components/CartProvider'
+import MobileDialog from '@components/MobileDialog'
+import { Bars3Icon } from '@heroicons/react/24/outline'
 
 const metadata = {
     title: "Store",
@@ -11,6 +13,7 @@ const metadata = {
 
 const RootLayout = ({ children }) => {
     const [open, setOpen] = useState(false)
+    const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
     return (
         <html>
@@ -19,8 +22,17 @@ const RootLayout = ({ children }) => {
                     <nav className='w-full bg-[#444444] border-b-2 border-b-[#da0037] shadow-inner h-auto p-4'>
                         <div className='flex justify-between'>
                             <div className='space-x-4'>
-                                <a href='/'>Home</a>
-                                <a href='/shop'>Shop</a>
+                                <div className="flex ">
+                                    <button
+                                    type="button"
+                                    className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
+                                    onClick={() => setMobileMenuOpen(true)}
+                                    >
+                                    <span className="sr-only">Open main menu</span>
+                                    <Bars3Icon className="h-6 w-6 text-white" aria-hidden="true" />
+                                    </button>
+                                </div>
+                                <MobileDialog mobileMenuOpen={mobileMenuOpen} setMobileMenuOpen={setMobileMenuOpen} />
                             </div>
                             <div>
                                 <button onClick={() => setOpen(true)}>Cart</button>

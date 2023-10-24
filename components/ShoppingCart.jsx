@@ -72,7 +72,7 @@ export default function ShoppingCart({open, setOpen}) {
                         </div>
                       </div>
 
-                      <div className="mt-8">
+                      <div className="mt-8 overflow-hidden">
                         <div className="flow-root">
                           <ul role="list" className="-my-6 divide-y divide-gray-200">
                             <AnimatePresence>

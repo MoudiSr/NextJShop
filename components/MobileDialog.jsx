@@ -4,6 +4,9 @@ import { Dialog, Transition } from '@headlessui/react'
 import { XMarkIcon } from '@heroicons/react/24/outline'
 import { BsHouseDoor, BsShop } from 'react-icons/bs'
 import { usePathname } from 'next/navigation';
+import {  
+    IoBagCheckOutline
+} from 'react-icons/io5'
 
 export default function MobileDialog({mobileMenuOpen, setMobileMenuOpen}) {
     const pathname = usePathname()
@@ -66,6 +69,12 @@ export default function MobileDialog({mobileMenuOpen, setMobileMenuOpen}) {
                                     <a href="/shop" className="text-base font-medium flex place-center">
                                         <BsShop className='mr-2 text-2xl' />
                                         <span className='text-xl'>Shop</span>
+                                    </a>
+                                </li>
+                                <li className={`py-6 px-2 rounded-md text-[#e5e5e5] ${pathname == '/checkout' ? "bg-gray-700" : ""}`}>
+                                    <a href="/checkout" className="text-base font-medium flex place-center">
+                                        <IoBagCheckOutline className='mr-2 text-2xl' />
+                                        <span className='text-xl'>Checkout</span>
                                     </a>
                                 </li>
                             </ul>

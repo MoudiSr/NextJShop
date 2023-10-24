@@ -5,6 +5,7 @@ import {useState} from "react"
 import CartProvider from '@components/CartProvider'
 import MobileDialog from '@components/MobileDialog'
 import { Bars3Icon } from '@heroicons/react/24/outline'
+import { usePathname } from 'next/navigation'
 
 const metadata = {
     title: "Store",
@@ -14,6 +15,7 @@ const metadata = {
 const RootLayout = ({ children }) => {
     const [open, setOpen] = useState(false)
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+    const pathname = usePathname()
 
     return (
         <html>
@@ -35,8 +37,10 @@ const RootLayout = ({ children }) => {
                                 <MobileDialog mobileMenuOpen={mobileMenuOpen} setMobileMenuOpen={setMobileMenuOpen} />
                             </div>
                             <div>
-                                <button onClick={() => setOpen(true)}>Cart</button>
-                                <ShoppingCart open={open} setOpen={setOpen}/>
+                         
+                                {pathname != '/checkout' && <><button onClick={() => setOpen(true)}>Cart</button>
+                                <ShoppingCart open={open} setOpen={setOpen}/></>
+                                }
                             </div>
                         </div>
                     </nav>

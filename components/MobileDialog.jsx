@@ -13,7 +13,7 @@ export default function MobileDialog({mobileMenuOpen, setMobileMenuOpen}) {
 
   return (
     <Transition.Root show={mobileMenuOpen} as={Fragment}>
-      <Dialog as="div" className="relative" onClose={setMobileMenuOpen}>
+      <Dialog as="div" className="relative z-10" onClose={setMobileMenuOpen}>
         <Transition.Child
           as={Fragment}
           enter="ease-in-out duration-500"

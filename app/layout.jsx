@@ -1,11 +1,12 @@
 'use client'
 import '@styles/global.css'
 import ShoppingCart from 'components/ShoppingCart'
-import {useState} from "react"
+import {useState, useContext} from "react"
 import CartProvider from '@components/CartProvider'
 import MobileDialog from '@components/MobileDialog'
 import { Bars3Icon } from '@heroicons/react/24/outline'
 import { usePathname } from 'next/navigation'
+import NotCheckout from '@components/NotCheckout'
 
 const metadata = {
     title: "Store",
@@ -21,7 +22,7 @@ const RootLayout = ({ children }) => {
         <html>
             <CartProvider>
                 <body className='bg-gray-800'>
-                    <nav className='w-full bg-[#444444] border-b-2 border-b-[#da0037] shadow-inner h-auto p-4'>
+                    <nav className='w-full bg-[#444444] fixed top-0 left-0 right-0 z-10 border-b-2 border-b-[#da0037] shadow-inner h-auto p-4'>
                         <div className='flex justify-between'>
                             <div className='space-x-4'>
                                 <div className="flex ">
@@ -38,8 +39,8 @@ const RootLayout = ({ children }) => {
                             </div>
                             <div>
                          
-                                {pathname != '/checkout' && <><button onClick={() => setOpen(true)}>Cart</button>
-                                <ShoppingCart open={open} setOpen={setOpen}/></>
+                                {pathname != '/checkout' && 
+                                    <NotCheckout open={open} setOpen={setOpen} />
                                 }
                             </div>
                         </div>

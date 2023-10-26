@@ -2,6 +2,7 @@
 import { CartContext } from "@components/CartProvider"
 import { useContext, useState, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
+import Link from "next/link"
 
 const Checkout = () => {
     const {cart} = useContext(CartContext)
@@ -90,7 +91,7 @@ const Checkout = () => {
             : 
             <div className="text-center my-40 grid justify-center">
                 <h1 className="mb-8 text-5xl">لا يوجد منتجات</h1>
-                <a href="/" className="text-xl bg-gray-700 rounded-md w-full py-8">Return to Home</a>
+                <Link href="/" className="text-xl bg-gray-700 rounded-md w-full py-8">Return to Home</Link>
             </div>
             }
         </div>

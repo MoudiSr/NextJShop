@@ -7,6 +7,7 @@ import { usePathname } from 'next/navigation';
 import {  
     IoBagCheckOutline
 } from 'react-icons/io5'
+import Link from 'next/link'
 
 export default function MobileDialog({mobileMenuOpen, setMobileMenuOpen}) {
     const pathname = usePathname()
@@ -60,22 +61,22 @@ export default function MobileDialog({mobileMenuOpen, setMobileMenuOpen}) {
                         <div className="flow-root">
                             <ul role="list">
                                 <li className={`py-6 px-2 rounded-md text-[#e5e5e5] ${pathname == '/' ? "bg-gray-700" : ""}`}>
-                                    <a href="/" className="text-base font-medium flex place-center">
+                                    <Link href="/" onClick={() => setMobileMenuOpen(false)} className="text-base font-medium flex place-center">
                                         <BsHouseDoor className='mr-2 text-2xl' />
                                         <span className='text-xl'>Home</span>
-                                    </a>
+                                    </Link>
                                 </li>
                                 <li className={`py-6 px-2 rounded-md text-[#e5e5e5] ${pathname == '/shop' ? "bg-gray-700" : ""}`}>
-                                    <a href="/shop" className="text-base font-medium flex place-center">
+                                    <Link href="/shop" onClick={() => setMobileMenuOpen(false)} className="text-base font-medium flex place-center">
                                         <BsShop className='mr-2 text-2xl' />
                                         <span className='text-xl'>Shop</span>
-                                    </a>
+                                    </Link>
                                 </li>
                                 <li className={`py-6 px-2 rounded-md text-[#e5e5e5] ${pathname == '/checkout' ? "bg-gray-700" : ""}`}>
-                                    <a href="/checkout" className="text-base font-medium flex place-center">
+                                    <Link href="/checkout" onClick={() => setMobileMenuOpen(false)} className="text-base font-medium flex place-center">
                                         <IoBagCheckOutline className='mr-2 text-2xl' />
                                         <span className='text-xl'>Checkout</span>
-                                    </a>
+                                    </Link>
                                 </li>
                             </ul>
                         </div>

@@ -3,7 +3,10 @@ import { Fragment, useEffect, useContext, useState } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import { XMarkIcon } from '@heroicons/react/24/outline'
 import { CartContext } from "@components/CartProvider"
+import Link from "next/link"
 import { motion, AnimatePresence } from "framer-motion"
+
+
 export default function ShoppingCart({open, setOpen}) {
     const {cart, setCart} = useContext(CartContext)
     const [total, setTotal] = useState(0)
@@ -134,12 +137,13 @@ export default function ShoppingCart({open, setOpen}) {
                       </div>
                       <p className="mt-0.5 text-sm text-gray-500">Shipping and taxes calculated at checkout.</p>
                       <div className="mt-6">
-                        <a
+                        <Link
                           href="/checkout"
+                          onClick={() => setOpen(false)}
                           className="flex items-center justify-center rounded-md border border-transparent bg-[#444444] px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-[#333333]"
                         >
                           Checkout
-                        </a>
+                        </Link>
                       </div>
                       <div className="mt-6 flex justify-center text-center text-sm text-gray-500">
                         <p>

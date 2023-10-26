@@ -2,6 +2,7 @@
 import {useState} from "react"
 import {useContext, useEffect} from "react"
 import { CartContext } from "@components/CartProvider"
+import Link from "next/link";
 
 const Card = ({id, name, image, price}) => {
     const [quantity, setQuantity] = useState(1)
@@ -35,9 +36,9 @@ const Card = ({id, name, image, price}) => {
             </a>
             <div className="mt-4 px-5 pb-5">
                 <div className="flex justify-between">
-                    <a href="#">
+                    <Link href="#">
                         <h5 className="text-xl tracking-tight text-white">{name}</h5>
-                    </a>
+                    </Link>
                     <div>
                         <select className="text-black w-14 h-10 border-[1px] rounded-md" onChange={e => {setQuantity(e.target.value);setTotalPrice(e.target.value*price)}} defaultValue={1}>
                             <option value="1">1</option>

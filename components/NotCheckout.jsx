@@ -3,7 +3,7 @@ import { CartContext } from "@components/CartProvider"
 import ShoppingCart from "@components/ShoppingCart"
 
 const NotCheckout = ({open, setOpen}) => {
-    const {cart} = useContext(CartContext)
+    const {cart, setCart} = useContext(CartContext)
 
     return (
         <>

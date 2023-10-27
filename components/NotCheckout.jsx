@@ -7,7 +7,10 @@ const NotCheckout = ({open, setOpen}) => {
 
     return (
         <>
-            <button onClick={() => setOpen(true)}>Cart {cart.length}</button>
+            <div className="cart" data-totalitems={cart.length}>
+                <button onClick={() => setOpen(true)}>Cart</button>
+            </div>
+
             <ShoppingCart open={open} setOpen={setOpen}/>
         </>
     )

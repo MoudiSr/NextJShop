@@ -3,12 +3,14 @@ import {useState} from "react"
 import {useContext, useEffect} from "react"
 import { CartContext } from "@components/CartProvider"
 import Link from "next/link";
+import { motion } from "framer-motion"
 
 const Card = ({id, name, image, price}) => {
     const [quantity, setQuantity] = useState(1)
     const [totalPrice, setTotalPrice] = useState(price)
     const [size, setSize] = useState("M")
     const [type, setType] = useState("كشافة")
+    const [animate, setAnimation] = useState(0)
 
     const {cart, setCart} = useContext(CartContext)
    
@@ -27,6 +29,11 @@ const Card = ({id, name, image, price}) => {
             size: size,
             type: type
         }])
+        const cartButton = document.querySelector(".cart")
+        cartButton.classList.add("shake")
+        setTimeout(() => {
+            cartButton.classList.remove("shake")
+        }, 500)
     }
 
     return (
@@ -79,10 +86,15 @@ const Card = ({id, name, image, price}) => {
                     <input type="radio" className="bg-[#128b49]" name={`type${id}`} value="كشافة" onChange={e => setType(e.target.value)} defaultChecked/>
                     <input type="radio" className="bg-[#ed1c24]" name={`type${id}`} value="جوالة" onChange={e => setType(e.target.value)}/>
                 </div>
-                 <a onClick={() => handleAdd()} className={`flex transition-colors duration-300 ease-in-out items-center justify-center rounded-md border border-transparent ${type == "براعم" ? `bg-[#2e3b72]` : type == "أشبال" ? `bg-[#fff200]` : type == "كشافة" ? `bg-[#128b49]` : `bg-[#ed1c24]`} px-5 py-2.5 text-center font-medium ${type === "أشبال" ? `text-black` : `text-white`} text-xl hover:cursor-pointer `}>
-                    <svg xmlns="http://www.w3.org/2000/svg" className="mr-2 h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
-                    </svg>
+                 <a onClick={() => handleAdd()} id="addToCart" className={`flex transition-colors duration-300 ease-in-out items-center justify-center rounded-md border border-transparent ${type == "براعم" ? `bg-[#2e3b72]` : type == "أشبال" ? `bg-[#fff200]` : type == "كشافة" ? `bg-[#128b49]` : `bg-[#ed1c24]`} px-5 py-2.5 text-center font-medium ${type === "أشبال" ? `text-black` : `text-white`} text-xl hover:cursor-pointer `}>
+                    <motion.svg xmlns="http://www.w3.org/2000/svg" className="mr-2 h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2" 
+                        
+                    >
+                        <motion.path 
+                            strokeLinecap="round" 
+                            strokeLinejoin="round" 
+                            d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                    </motion.svg>
                     Add to cart
                 </a>
             </div>

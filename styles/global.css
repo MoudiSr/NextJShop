@@ -70,3 +70,31 @@ input[type=number] {
   -moz-appearance: textfield;
 }
 
+.cart {
+  &::after{
+    content: attr(data-totalitems);
+    margin-left: .4rem;
+    background-color: #da0037;
+    padding: .4rem .4rem .2rem .4rem;
+    border-radius: 50%;
+    text-align: center;
+  }
+  &.shake {
+    animation: shakeCart .4s ease-in-out forwards;
+  }
+}
+
+@keyframes shakeCart {
+  25% {
+    transform:translateX(6px);
+  }
+  50% {
+    transform:translateX(-4px);
+  }
+  75% {
+    transform:translateX(2px);
+  }
+  100% {
+    transform:translateX(0);
+  }
+}

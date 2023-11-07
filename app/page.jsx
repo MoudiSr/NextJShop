@@ -1,9 +1,8 @@
 const Home = () => {
     return (
-        <>
-            <h1>Main Page</h1>
-            <h2>hello</h2>
-        </>
+        <div className="grid justify-center items-center">
+            <img src="/images/hero.jpg" className="w-full" />
+        </div>
     )
 }
 

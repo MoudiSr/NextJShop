@@ -35,6 +35,10 @@ body {
   margin-top: 4rem;
 }
 
+div {
+  margin: 0;
+  padding: 0;
+}
 
 input[type=radio] {
   appearance: none;

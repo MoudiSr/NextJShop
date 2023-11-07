@@ -7,6 +7,7 @@ import { Bars3Icon } from '@heroicons/react/24/outline'
 import { usePathname } from 'next/navigation'
 import NotCheckout from '@components/NotCheckout'
 import { motion, AnimatePresence } from 'framer-motion'
+import Link from 'next/link'
 
 const metadata = {
     title: "Store",
@@ -30,13 +31,13 @@ const RootLayout = ({ children }) => {
             <html>
                 <CartProvider>
                     <body className='bg-gray-800'>
-                        <nav className='w-full bg-[#444444] fixed top-0 left-0 right-0 z-10 border-b-2 border-b-[#da0037] shadow-inner h-auto p-4'>
-                            <div className='flex justify-between'>
-                                <div className='space-x-4'>
-                                    <div className="flex ">
+                        <div className='flex justify-between bg-gray-600 pt-2'>
+                            <ul className="flex">
+                                <li className="mr-1">
+                                    <div className="inline-block py-2 px-4 font-semibold">
                                         <button
                                         type="button"
-                                        className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
+                                        className=" inline-flex items-center justify-center rounded-md text-gray-700"
                                         onClick={() => setMobileMenuOpen(true)}
                                         >
                                         <span className="sr-only">Open main menu</span>
@@ -44,15 +45,22 @@ const RootLayout = ({ children }) => {
                                         </button>
                                     </div>
                                     <MobileDialog mobileMenuOpen={mobileMenuOpen} setMobileMenuOpen={setMobileMenuOpen} />
-                                </div>
-                                <div>
+                                </li>
+                                <li className="mr-1">
+                                    <Link className={`inline-block py-2 px-4 font-semibold ${pathname == '/' ? "bg-gray-800 rounded" : ""} `} href="/">Home</Link>
+                                </li>
+                                <li className="mr-1">
+                                    <Link className={`inline-block py-2 px-4 font-semibold ${pathname == '/shop' ? "bg-gray-800 rounded" : ""} `} href="/shop">Shop</Link>
+                                </li>
+                            </ul>
                             
-                                    {pathname != '/checkout' && 
-                                        <NotCheckout open={open} setOpen={setOpen} />
-                                    }
-                                </div>
+                            <div>
+                        
+                                {pathname != '/checkout' && 
+                                    <NotCheckout open={open} setOpen={setOpen} />
+                                }
                             </div>
-                        </nav>
+                        </div>
                         <AnimatePresence>
                             <motion.div ref={constraintsRef}>
                                 <motion.div 

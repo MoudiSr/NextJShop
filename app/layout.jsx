@@ -7,6 +7,7 @@ import { Bars3Icon } from '@heroicons/react/24/outline'
 import { usePathname } from 'next/navigation'
 import NotCheckout from '@components/NotCheckout'
 import { motion, AnimatePresence } from 'framer-motion'
+import Link from 'next/link'
 
 const metadata = {
     title: "Store",
@@ -29,11 +30,11 @@ const RootLayout = ({ children }) => {
         
             <html>
                 <CartProvider>
-                    <body className='bg-gray-800'>
-                        <nav className='w-full bg-[#444444] fixed top-0 left-0 right-0 z-10 border-b-2 border-b-[#da0037] shadow-inner h-auto p-4'>
-                            <div className='flex justify-between'>
-                                <div className='space-x-4'>
-                                    <div className="flex ">
+                    <body className='bg-[#76489C]'>
+                        <nav className='flex justify-between bg-[#8966AB] pt-2 shadow-lg'>
+                            <div className='flex'>
+                                <div className='py-2 px-6'>
+                                    <div className="flex">
                                         <button
                                         type="button"
                                         className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
@@ -45,12 +46,21 @@ const RootLayout = ({ children }) => {
                                     </div>
                                     <MobileDialog mobileMenuOpen={mobileMenuOpen} setMobileMenuOpen={setMobileMenuOpen} />
                                 </div>
-                                <div>
-                            
-                                    {pathname != '/checkout' && 
-                                        <NotCheckout open={open} setOpen={setOpen} />
-                                    }
+                                <div className={`py-2 px-6 ${pathname == "/" ? `bg-[#76489c] rounded-t-md ` : ``} `}>
+                                    <Link href='/'>Home</Link>
                                 </div>
+                                <div className={`py-2 px-6 ${pathname == "/shop" ? `bg-[#76489c] rounded-t-md ` : ``} `}>
+                                    <Link href='/shop'>Shop</Link>
+                                </div>
+                                {pathname === '/checkout' && <div className={`py-2 px-6 ${pathname == "/checkout" ? `bg-[#76489c] rounded-t-md ` : ``} `}>
+                                    <Link href='/checkout'>Checkout</Link>
+                                </div>}
+                            </div>
+                            
+                            <div className='py-2 px-6'>
+                                {pathname != '/checkout' && 
+                                    <NotCheckout open={open} setOpen={setOpen} />
+                                }
                             </div>
                         </nav>
                         <AnimatePresence>

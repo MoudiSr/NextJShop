@@ -135,7 +135,6 @@ export default function ShoppingCart({open, setOpen}) {
                         <p>Total</p>
                         <p>${total}</p>
                       </div>
-                      <p className="mt-0.5 text-sm text-gray-500">Shipping and taxes calculated at checkout.</p>
                       <div className="mt-6">
                         <Link
                           href="/checkout"

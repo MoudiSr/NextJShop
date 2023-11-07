@@ -37,7 +37,7 @@ const Card = ({id, name, image, price}) => {
     }
 
     return (
-        <div key={id} className="group border-gray-100/30 m-8 flex w-full max-w-xs flex-col self-center overflow-hidden rounded-lg border bg-gray-700 shadow-md">
+        <div key={id} className="group border-gray-100/30 m-8 flex w-full max-w-xs flex-col self-center overflow-hidden rounded-lg border bg-[#8966AB] shadow-md">
             <a className="relative mx-3 mt-3 flex h-60 overflow-hidden rounded-xl">
                 <img className="peer absolute top-0 right-0 h-full w-full object-cover" src={image} alt="product image" />
             </a>

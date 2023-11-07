@@ -35,6 +35,13 @@ body {
   margin-top: 4rem;
 }
 
+nav {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 1;
+}
 
 input[type=radio] {
   appearance: none;
@@ -74,7 +81,7 @@ input[type=number] {
   &::after{
     content: attr(data-totalitems);
     margin-left: .4rem;
-    background-color: #da0037;
+    background-color: #E4C048;
     padding: .4rem .4rem .2rem .4rem;
     border-radius: 50%;
     text-align: center;
@@ -83,6 +90,8 @@ input[type=number] {
     animation: shakeCart .4s ease-in-out forwards;
   }
 }
+
+
 
 @keyframes shakeCart {
   25% {

@@ -56,7 +56,7 @@ const Checkout = () => {
                         </div>
                     </div>
                     <div className="flex w-full justify-center ">
-                        {(name && phone && address) && <a href={`https://wa.me/+96178831474?text=${encodeURIComponent(cartMessage)}`} className="bg-gray-200 py-2 p-2 text-white text-center rounded-md text-xl w-full bg-[#E4C048] shadow-lg">تأكيد الطلب</a>}
+                        {(name && phone && address) && <a href={`https://wa.me/+96178831474?text=${encodeURIComponent(cartMessage)}`} className="py-2 p-2 text-white text-center rounded-md text-xl w-full bg-[#E4C048] shadow-lg">تأكيد الطلب</a>}
                     </div>
                 </div>
             </div>

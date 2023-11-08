@@ -5,12 +5,14 @@ import { XMarkIcon } from '@heroicons/react/24/outline'
 import { CartContext } from "@components/CartProvider"
 import Link from "next/link"
 import { motion, AnimatePresence } from "framer-motion"
+import { usePathname } from 'next/navigation'
 
 
 export default function ShoppingCart({open, setOpen}) {
     const {cart, setCart} = useContext(CartContext)
     const [total, setTotal] = useState(0)
     
+    const pathname = usePathname();
 
 
     const handleDelete = (id) => {
@@ -152,7 +154,8 @@ export default function ShoppingCart({open, setOpen}) {
                             className="font-medium text-indigo-600 hover:text-indigo-500"
                             onClick={() => setOpen(false)}
                           >
-                            Continue Shopping
+                            {pathname === "/" ? <Link href="/shop">Continue Shopping</Link> : "Continue Shopping"}
+                            
                             <span aria-hidden="true"> &rarr;</span>
                           </button>
                         </p>

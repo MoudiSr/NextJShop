@@ -117,7 +117,7 @@ export default function ShoppingCart({open, setOpen}) {
                                       <button
                                         type="button"
                                         onClick={() => handleDelete(product.id)}
-                                        className="font-medium text-indigo-600 hover:text-indigo-500"
+                                        className="font-medium text-[#8966AB]"
                                       >
                                         Remove
                                       </button>
@@ -141,7 +141,7 @@ export default function ShoppingCart({open, setOpen}) {
                         <Link
                           href="/checkout"
                           onClick={() => setOpen(false)}
-                          className="flex items-center justify-center rounded-md border border-transparent bg-[#444444] px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-[#333333]"
+                          className="flex items-center justify-center rounded-md border border-transparent bg-[#E4C048] px-6 py-3 text-base font-medium text-gray-900 shadow-sm hover:bg-[#E4C048]"
                         >
                           Checkout
                         </Link>
@@ -151,7 +151,7 @@ export default function ShoppingCart({open, setOpen}) {
                           or{' '}
                           <button
                             type="button"
-                            className="font-medium text-indigo-600 hover:text-indigo-500"
+                            className="font-medium text-[#8966AB] "
                             onClick={() => setOpen(false)}
                           >
                             {pathname === "/" ? <Link href="/shop">Continue Shopping</Link> : "Continue Shopping"}

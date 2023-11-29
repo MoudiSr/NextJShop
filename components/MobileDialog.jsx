@@ -39,11 +39,12 @@ export default function MobileDialog({mobileMenuOpen, setMobileMenuOpen}) {
                 leaveFrom="translate-x-0"
                 leaveTo="translate-x-[-100%]"
               >
+                
                 <Dialog.Panel className="pointer-events-auto w-screen max-w-md">
                   <div className="flex h-full flex-col bg-white shadow-xl ">
-                    <div className="flex-1 overflow-y-auto px-4 py-6 sm:px-6 bg-gray-800 text-white">
+                    <div className="flex-1 overflow-y-auto px-4 py-6 sm:px-6">
                       <div className="flex items-start justify-between">
-                        <Dialog.Title className="text-lg font-medium ">Menu</Dialog.Title>
+                        <Dialog.Title className="text-lg font-medium text-gray-900">Menu</Dialog.Title>
                         <div className="ml-3 flex h-7 items-center">
                           <button
                             type="button"
@@ -60,19 +61,19 @@ export default function MobileDialog({mobileMenuOpen, setMobileMenuOpen}) {
                       <div className="mt-8 overflow-hidden">
                         <div className="flow-root">
                             <ul role="list">
-                                <li className={`py-6 px-2 rounded-md text-[#e5e5e5] ${pathname == '/' ? "bg-gray-700" : ""}`}>
+                                <li className={`py-6 px-2 rounded-md text-gray-900 ${pathname == '/' ? "bg-gray-100 text-[#8966AB]" : ""}`}>
                                     <Link href="/" onClick={() => setMobileMenuOpen(false)} className="text-base font-medium flex place-center">
                                         <BsHouseDoor className='mr-2 text-2xl' />
                                         <span className='text-xl'>Home</span>
                                     </Link>
                                 </li>
-                                <li className={`py-6 px-2 rounded-md text-[#e5e5e5] ${pathname == '/shop' ? "bg-gray-700" : ""}`}>
+                                <li className={`py-6 px-2 rounded-md text-gray-900 ${pathname == '/shop' ? "bg-gray-100 text-[#8966AB]" : ""}`}>
                                     <Link href="/shop" onClick={() => setMobileMenuOpen(false)} className="text-base font-medium flex place-center">
                                         <BsShop className='mr-2 text-2xl' />
                                         <span className='text-xl'>Shop</span>
                                     </Link>
                                 </li>
-                                <li className={`py-6 px-2 rounded-md text-[#e5e5e5] ${pathname == '/checkout' ? "bg-gray-700" : ""}`}>
+                                <li className={`py-6 px-2 rounded-md text-gray-900 ${pathname == '/checkout' ? "bg-gray-100 text-[#8966AB]" : ""}`}>
                                     <Link href="/checkout" onClick={() => setMobileMenuOpen(false)} className="text-base font-medium flex place-center">
                                         <IoBagCheckOutline className='mr-2 text-2xl' />
                                         <span className='text-xl'>Checkout</span>

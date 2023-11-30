@@ -61,19 +61,19 @@ export default function MobileDialog({mobileMenuOpen, setMobileMenuOpen}) {
                       <div className="mt-8 overflow-hidden">
                         <div className="flow-root">
                             <ul role="list">
-                                <li className={`py-6 px-2 rounded-md text-gray-900 ${pathname == '/' ? "bg-gray-100 text-[#8966AB]" : ""}`}>
+                                <li className={`py-6 px-2 rounded-md ${pathname == '/' ? "bg-gray-100 text-[#8966AB]" : "text-gray-900"}`}>
                                     <Link href="/" onClick={() => setMobileMenuOpen(false)} className="text-base font-medium flex place-center">
                                         <BsHouseDoor className='mr-2 text-2xl' />
                                         <span className='text-xl'>Home</span>
                                     </Link>
                                 </li>
-                                <li className={`py-6 px-2 rounded-md text-gray-900 ${pathname == '/shop' ? "bg-gray-100 text-[#8966AB]" : ""}`}>
+                                <li className={`py-6 px-2 rounded-md ${pathname == '/shop' ? "bg-gray-100 text-[#8966AB]" : "text-gray-900"}`}>
                                     <Link href="/shop" onClick={() => setMobileMenuOpen(false)} className="text-base font-medium flex place-center">
                                         <BsShop className='mr-2 text-2xl' />
                                         <span className='text-xl'>Shop</span>
                                     </Link>
                                 </li>
-                                <li className={`py-6 px-2 rounded-md text-gray-900 ${pathname == '/checkout' ? "bg-gray-100 text-[#8966AB]" : ""}`}>
+                                <li className={`py-6 px-2 rounded-md ${pathname == '/checkout' ? "bg-gray-100 text-[#8966AB]" : "text-gray-900"}`}>
                                     <Link href="/checkout" onClick={() => setMobileMenuOpen(false)} className="text-base font-medium flex place-center">
                                         <IoBagCheckOutline className='mr-2 text-2xl' />
                                         <span className='text-xl'>Checkout</span>

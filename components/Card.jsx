@@ -21,7 +21,15 @@ const Card = ({id, name, image, price, has}) => {
     }, [cart])
 
     const handleAdd = () => {
-        setCart([...cart, {
+        let isAvailable = false
+        cart.map(item => {
+            if (item.name === name && item.size === size && item.type === type) {
+                isAvailable = true
+                item.quantity += quantity
+                item.price += totalPrice
+            }
+        })
+        setCart(!isAvailable ? [...cart, {
             id: cart.length+1,
             name: name,
             image: imageSrc,
@@ -29,7 +37,7 @@ const Card = ({id, name, image, price, has}) => {
             quantity: quantity,
             size: size,
             type: type
-        }])
+        }] : [...cart])
         const cartButton = document.querySelector(".cart")
         cartButton.classList.add("shake")
         setTimeout(() => {
@@ -58,18 +66,7 @@ const Card = ({id, name, image, price, has}) => {
                         <h5 className="text-xl tracking-tight text-white">{name}</h5>
                     </Link>
                     <div>
-                        <select className="text-black w-14 h-10 border-[1px] rounded-md" onChange={e => {setQuantity(e.target.value);setTotalPrice(e.target.value*price)}} defaultValue={1}>
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                            <option value="6">6</option>
-                            <option value="7">7</option>
-                            <option value="8">8</option>
-                            <option value="9">9</option>
-                            <option value="10">10</option>
-                        </select>
+                        <p className="text-xl font-bold text-white">{type}</p>
                     </div>
                 </div>
                 <div className="mt-2 mb-5 flex items-center justify-between">

@@ -19,7 +19,7 @@ const Checkout = () => {
     }, [])
 
     const cartMessage = cart.map((item, index) => {
-        return `${index+1}. ${item.name} الفرقة:${item.type} الحجم:${item.size} الكمية:${item.quantity} المبلغ:$${item.price}`
+        return `${index+1}. ${item.name}\n الفرقة:${item.type}\n الحجم:${item.size}\n الكمية:${item.quantity}\n المبلغ:$${item.price}\n`
       }).join('\n') + `\n${name}\n${address}\n${phone}` +`\n\nالمجموع:${total}$`;
 
     const inputStyle = {

@@ -3,7 +3,7 @@ import {useState} from "react"
 import {useContext, useEffect} from "react"
 import { CartContext } from "@components/CartProvider"
 import Link from "next/link";
-import { motion } from "framer-motion"
+import { motion, AnimatePresence } from "framer-motion"
 
 const Card = ({id, name, image, price, has}) => {
     const [quantity, setQuantity] = useState(1)
@@ -40,7 +40,17 @@ const Card = ({id, name, image, price, has}) => {
     return (
         <div key={id} className="group border-gray-100/30 m-8 flex w-full max-w-xs flex-col self-center overflow-hidden rounded-lg border bg-[#8966AB] shadow-md">
             <a className="relative mx-3 mt-3 flex h-60 overflow-hidden rounded-xl">
-                <img className="peer absolute top-0 right-0 h-full w-full object-cover" src={imageSrc} alt="product image" />
+                <AnimatePresence>
+                    <motion.img 
+                        className="peer absolute top-0 right-0 h-full w-full object-cover" 
+                        src={imageSrc}
+                        key={imageSrc}
+                        alt="product image"
+                        initial={{ opacity: 0, y: 200 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0 }} 
+                    />
+                </AnimatePresence>
             </a>
             <div className="mt-4 px-5 pb-5">
                 <div className="flex justify-between">

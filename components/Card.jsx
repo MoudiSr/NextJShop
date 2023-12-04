@@ -5,11 +5,12 @@ import { CartContext } from "@components/CartProvider"
 import Link from "next/link";
 import { motion } from "framer-motion"
 
-const Card = ({id, name, image, price}) => {
+const Card = ({id, name, image, price, has}) => {
     const [quantity, setQuantity] = useState(1)
     const [totalPrice, setTotalPrice] = useState(price)
     const [size, setSize] = useState("M")
     const [type, setType] = useState("كشافة")
+    const [imageSrc, setImageSrc] = useState(has ? image+"3.png" : image+"1.png")
     const [animate, setAnimation] = useState(0)
 
     const {cart, setCart} = useContext(CartContext)
@@ -23,7 +24,7 @@ const Card = ({id, name, image, price}) => {
         setCart([...cart, {
             id: cart.length+1,
             name: name,
-            image: image,
+            image: imageSrc,
             price: totalPrice,
             quantity: quantity,
             size: size,
@@ -39,7 +40,7 @@ const Card = ({id, name, image, price}) => {
     return (
         <div key={id} className="group border-gray-100/30 m-8 flex w-full max-w-xs flex-col self-center overflow-hidden rounded-lg border bg-[#8966AB] shadow-md">
             <a className="relative mx-3 mt-3 flex h-60 overflow-hidden rounded-xl">
-                <img className="peer absolute top-0 right-0 h-full w-full object-cover" src={image} alt="product image" />
+                <img className="peer absolute top-0 right-0 h-full w-full object-cover" src={imageSrc} alt="product image" />
             </a>
             <div className="mt-4 px-5 pb-5">
                 <div className="flex justify-between">
@@ -81,10 +82,22 @@ const Card = ({id, name, image, price}) => {
                     </div>}
                 </div>
                 <div className="flex justify-between mx-8 mb-4 ">
-                    <input type="radio" className="bg-[#2e3b72]" name={`type${id}`} value="براعم" onChange={e => setType(e.target.value)}/>
-                    <input type="radio" className="bg-[#fff200]" name={`type${id}`} value="أشبال" onChange={e => setType(e.target.value)}/>
-                    <input type="radio" className="bg-[#128b49]" name={`type${id}`} value="كشافة" onChange={e => setType(e.target.value)} defaultChecked/>
-                    <input type="radio" className="bg-[#ed1c24]" name={`type${id}`} value="جوالة" onChange={e => setType(e.target.value)}/>
+                    <input type="radio" className="bg-[#2e3b72]" name={`type${id}`} value="براعم" onChange={e => {
+                        setType(e.target.value);
+                        setImageSrc(image+"1.png");
+                    }}/>
+                    <input type="radio" className="bg-[#fff200]" name={`type${id}`} value="أشبال" onChange={e => {
+                        setType(e.target.value);
+                        setImageSrc(name === "حبسة" ? image + "1.png" : image+"2.png");
+                    }}/>
+                    <input type="radio" className="bg-[#128b49]" name={`type${id}`} value="كشافة" onChange={e => {
+                        setType(e.target.value);
+                        setImageSrc(name === "حبسة" ? image + "1.png" : image+"3.png");
+                    }} defaultChecked/>
+                    <input type="radio" className="bg-[#ed1c24]" name={`type${id}`} value="جوالة" onChange={e => {
+                        setType(e.target.value);
+                        setImageSrc(name === "حبسة" ? image + "2.png" : image+"4.png");
+                    }}/>
                 </div>
                  <motion.a onClick={() => handleAdd()} id="addToCart" className={`flex transition-colors duration-300 ease-in-out items-center justify-center rounded-md border border-transparent ${type == "براعم" ? `bg-[#2e3b72]` : type == "أشبال" ? `bg-[#fff200]` : type == "كشافة" ? `bg-[#128b49]` : `bg-[#ed1c24]`} px-5 py-2.5 text-center font-medium ${type === "أشبال" ? `text-black` : `text-white`} text-xl hover:cursor-pointer `}
                     whileHover={{ scale: 1.1 }}

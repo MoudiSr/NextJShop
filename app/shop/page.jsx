@@ -1,4 +1,5 @@
 import Card from "components/Card"
+import CategoryDropdown from "@components/CategoryDropdown"
 
 const products = [
     {
@@ -35,7 +36,10 @@ const Shop = () => {
 
     return (
         <div>
-            <h1 className="text-center text-2xl">Products</h1>
+            <h1 className="text-center text-2xl">المنتجات</h1>
+            <div className="flex justify-center pt-4 px-12">
+                <CategoryDropdown />
+            </div>
             <div>
                 <div className="flex flex-wrap p-4 justify-center">
                     {products.map((product) => (

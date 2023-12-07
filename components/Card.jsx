@@ -98,19 +98,19 @@ const Card = ({id, inititalName, image, price, has}) => {
                     }}/>
                     <input type="radio" className="bg-[#fff200]" name={`type${id}`} value="أشبال" onChange={e => {
                         setType(e.target.value);
-                        setImageSrc(name === "حبسة" ? image + "1.png" : name === "كفوف" ? image + "1.png" : image+"2.png");
+                        setImageSrc(name === "حبسة" ? image + "1.png" : id == 5 ? image + "1.png" : image+"2.png");
                         {name === "قميص" ? setTotalPrice(7.5) : ""}
                         {id === 6 ? setName("طاقية") : ""}
                     }}/>
                     <input type="radio" className="bg-[#128b49]" name={`type${id}`} value="كشافة" onChange={e => {
                         setType(e.target.value);
-                        setImageSrc(name === "حبسة" ? image + "1.png" : name === "كفوف" ? image + "1.png" : image+"3.png");
+                        setImageSrc(name === "حبسة" ? image + "1.png" : id == 5 ? image + "1.png" : image+"3.png");
                         {name === "قميص" ? setTotalPrice(8.5) : ""}
                         {id === 6 ? setName("بيريه") : ""}
                     }} defaultChecked/>
                     <input type="radio" className="bg-[#ed1c24]" name={`type${id}`} value="جوالة" onChange={e => {
                         setType(e.target.value);
-                        setImageSrc(name === "حبسة" ? image + "2.png" : name === "كفوف" ? image + "1.png" : image+"4.png");
+                        setImageSrc(name === "حبسة" ? image + "2.png" : id == 5 ? image + "1.png" : image+"4.png");
                         {name === "قميص" ? setTotalPrice(10) : ""}
                         {id === 6 ? setName("بيريه") : ""}
                     }}/>

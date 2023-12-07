@@ -36,7 +36,7 @@ export default function CategoryDropdown() {
               {({ active }) => (
                 <Link
                   href="/shop/1"
-                  className={`${active && pathname == "/shop/1" ? 'bg-gray-100 text-[#e4c048]' : active ? 'bg-gray-100 text-gray-900' : pathname == '/shop/1' ? "text-[#e4c048]" : 'text-gray-700'} block px-4 py-2 text-sm`}
+                  className={`${active && pathname == "/shop/1" ? 'bg-gray-100 text-[#00B49F]' : active ? 'bg-gray-100 text-gray-900' : pathname == '/shop/1' ? "text-[#00B49F]" : 'text-gray-700'} block px-4 py-2 text-sm`}
                 >
                   كشفيات
                 </Link>
@@ -46,7 +46,7 @@ export default function CategoryDropdown() {
               {({ active }) => (
                 <Link
                   href="/shop/2"
-                  className={`${active && pathname == "/shop/2" ? 'bg-gray-100 text-[#e4c048]' : active ? 'bg-gray-100 text-gray-900' : pathname == '/shop/2' ? "text-[#e4c048]" : 'text-gray-700'} block px-4 py-2 text-sm`}
+                  className={`${active && pathname == "/shop/2" ? 'bg-gray-100 text-[#00B49F]' : active ? 'bg-gray-100 text-gray-900' : pathname == '/shop/2' ? "text-[#00B49F]" : 'text-gray-700'} block px-4 py-2 text-sm`}
                 >
                   كتب
                 </Link>
@@ -56,7 +56,7 @@ export default function CategoryDropdown() {
               {({ active }) => (
                 <Link
                   href="/shop/3"
-                  className={`${active && pathname == "/shop/3" ? 'bg-gray-100 text-[#e4c048]' : active ? 'bg-gray-100 text-gray-900' : pathname == '/shop/3' ? "text-[#e4c048]" : 'text-gray-700'} block px-4 py-2 text-sm`}
+                  className={`${active && pathname == "/shop/3" ? 'bg-gray-100 text-[#00B49F]' : active ? 'bg-gray-100 text-gray-900' : pathname == '/shop/3' ? "text-[#00B49F]" : 'text-gray-700'} block px-4 py-2 text-sm`}
                 >
                   اكسسوارات
                 </Link>

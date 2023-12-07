@@ -3,6 +3,7 @@ import { Fragment } from 'react'
 import { Menu, Transition } from '@headlessui/react'
 import { ChevronDownIcon } from '@heroicons/react/20/solid'
 import { usePathname } from 'next/navigation';
+import Link from 'next/link'
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
@@ -14,7 +15,7 @@ export default function CategoryDropdown() {
   return (
     <Menu as="div" className="relative inline-block text-left w-full">
       <div>
-        <Menu.Button className="inline-flex w-full justify-between gap-x-1.5 rounded-md bg-[#E4C048] px-3 py-2 text-md font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-700 ">
+        <Menu.Button className="inline-flex w-full justify-between gap-x-1.5 rounded-md bg-[#e4c048] px-3 py-2 text-md font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-700 hover:bg-[#ffd651] ">
             <ChevronDownIcon className="-mr-1 h-5 w-5 text-black" aria-hidden="true" />
             الأصناف
         </Menu.Button>
@@ -33,44 +34,44 @@ export default function CategoryDropdown() {
           <div className="py-1">
             <Menu.Item>
               {({ active }) => (
-                <a
-                  href="/shop"
+                <Link
+                  href="/shop/1"
                   className={classNames(
                     active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
                     'block px-4 py-2 text-sm',
-                    pathname == '/shop' ? "text-[#E4C048]" : ""
+                    pathname == '/shop/1' ? "text-[#e4c048]" : ""
                   )}
                 >
                   كشفيات
-                </a>
+                </Link>
               )}
             </Menu.Item>
             <Menu.Item>
               {({ active }) => (
-                <a
-                  href="#"
+                <Link
+                  href="/shop/2"
                   className={classNames(
                     active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
                     'block px-4 py-2 text-sm',
-                    pathname == '#' ? "text-[#E4C048]" : ""
+                    pathname == '/shop/2' ? "text-[#e4c048]" : ""
                   )}
                 >
                   كتب
-                </a>
+                </Link>
               )}
             </Menu.Item>
             <Menu.Item>
               {({ active }) => (
-                <a
-                  href="#"
+                <Link
+                  href="/shop/3"
                   className={classNames(
                     active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
                     'block px-4 py-2 text-sm',
-                    pathname == '#' ? "text-[#E4C048]" : ""
+                    pathname == '/shop/3' ? "text-[#e4c048]" : ""
                   )}
                 >
                   اكسسوارات
-                </a>
+                </Link>
               )}
             </Menu.Item>
           </div>

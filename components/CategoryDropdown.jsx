@@ -36,11 +36,7 @@ export default function CategoryDropdown() {
               {({ active }) => (
                 <Link
                   href="/shop/1"
-                  className={classNames(
-                    active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
-                    'block px-4 py-2 text-sm',
-                    pathname == '/shop/1' ? "text-[#e4c048]" : ""
-                  )}
+                  className={`${active && pathname == "/shop/1" ? 'bg-gray-100 text-[#e4c048]' : active ? 'bg-gray-100 text-gray-900' : pathname == '/shop/1' ? "text-[#e4c048]" : 'text-gray-700'} block px-4 py-2 text-sm`}
                 >
                   كشفيات
                 </Link>
@@ -50,11 +46,7 @@ export default function CategoryDropdown() {
               {({ active }) => (
                 <Link
                   href="/shop/2"
-                  className={classNames(
-                    active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
-                    'block px-4 py-2 text-sm',
-                    pathname == '/shop/2' ? "text-[#e4c048]" : ""
-                  )}
+                  className={`${active && pathname == "/shop/2" ? 'bg-gray-100 text-[#e4c048]' : active ? 'bg-gray-100 text-gray-900' : pathname == '/shop/2' ? "text-[#e4c048]" : 'text-gray-700'} block px-4 py-2 text-sm`}
                 >
                   كتب
                 </Link>
@@ -64,11 +56,7 @@ export default function CategoryDropdown() {
               {({ active }) => (
                 <Link
                   href="/shop/3"
-                  className={classNames(
-                    active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
-                    'block px-4 py-2 text-sm',
-                    pathname == '/shop/3' ? "text-[#e4c048]" : ""
-                  )}
+                  className={`${active && pathname == "/shop/3" ? 'bg-gray-100 text-[#e4c048]' : active ? 'bg-gray-100 text-gray-900' : pathname == '/shop/3' ? "text-[#e4c048]" : 'text-gray-700'} block px-4 py-2 text-sm`}
                 >
                   اكسسوارات
                 </Link>

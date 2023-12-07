@@ -52,7 +52,7 @@ const RootLayout = ({ children }) => {
                                 <div className={`py-2 px-6 ${pathname == "/shop" ? `bg-[#76489c] rounded-t-md ` : ``} `}>
                                     <Link href='/shop'>Shop</Link>
                                 </div>
-                                {pathname === '/checkout' && <div className={`py-2 px-6 ${pathname == "/checkout" ? `bg-[#76489c] rounded-t-md ` : ``} `}>
+                                {pathname == '/checkout' && <div className={`py-2 px-6 ${pathname == "/checkout" ? `bg-[#76489c] rounded-t-md ` : ``} `}>
                                     <Link href='/checkout'>Checkout</Link>
                                 </div>}
                             </div>

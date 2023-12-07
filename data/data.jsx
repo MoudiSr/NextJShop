@@ -2,7 +2,7 @@ const products = [
     {
         id: 1,
         image: "/assets/images/kamis-",
-        initialName: "قميص",
+        inititalName: "قميص",
         price: 8.5,
         has: true,
         cat: "كشفيات",
@@ -11,7 +11,7 @@ const products = [
     {
         id: 2,
         image: "/assets/images/foular-",
-        initialName: "فولار",
+        inititalName: "فولار",
         price: 1.5,
         has: true,
         cat: "كشفيات"
@@ -19,7 +19,7 @@ const products = [
     {
         id: 3,
         image: "/assets/images/habse-",
-        initialName: "حبسة",
+        inititalName: "حبسة",
         price: 1,
         has: false,
         cat: "كشفيات"
@@ -27,7 +27,7 @@ const products = [
     {
         id: 4,
         image: "/assets/images/kitayfet-",
-        initialName: "كتيفات",
+        inititalName: "كتيفات",
         price: 1,
         has: true,
         cat: "كشفيات"
@@ -35,7 +35,7 @@ const products = [
     {
         id: 5,
         image: "/assets/images/kofouf-",
-        initialName: "كفوف",
+        inititalName: "كفوف",
         price: 2,
         has: false,
         cat: "كشفيات"
@@ -43,7 +43,7 @@ const products = [
     {
         id: 6,
         image: "/assets/images/ta2iye-",
-        initialName: "طاقية",
+        inititalName: "بيريه",
         price: 5,
         has: true,
         cat: "كشفيات"

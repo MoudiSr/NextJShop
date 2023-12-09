@@ -28,6 +28,11 @@
 
 body {
   color: #ededed;
+  background-image: url('/assets/images/background.png');
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-attachment: fixed;
+  background-position: center left;
 }
 
 .app {
@@ -91,8 +96,17 @@ input[type=number] {
   }
 }
 
+@media (min-width: 600px) {
+  body {
+    background-size: 60%;
+  }
+}
 
-
+@media (max-width: 599px ) and (min-width: 444px) {
+  body {
+    background-size: 75%;
+  }
+}
 
 
 @keyframes shakeCart {

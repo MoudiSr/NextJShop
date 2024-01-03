@@ -3,6 +3,7 @@ import { CartContext } from "@components/CartProvider"
 import { useContext, useState, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import Link from "next/link"
+import axios from 'axios';
 
 const Checkout = () => {
     const {cart} = useContext(CartContext)
@@ -10,13 +11,26 @@ const Checkout = () => {
     const [phone, setPhone] = useState('')
     const [address, setAddress] = useState('')
 
+
     const total = cart.reduce((prevTotal, p) => prevTotal + p.price, 0);
 
     const cartMessage = cart.map((item, index) => {
         return `${index+1}. ${item.name}\n الفرقة:${item.type}\n الحجم:${item.size}\n الكمية:${item.quantity}\n المبلغ:$${item.price}\n`
       }).join('\n') + `\n${name}\n${address}\n${phone}` +`\n\nالمجموع:${total}$`;
 
-    const inputStyle = {
+    const sendOrderToTelegram = async (cartMessage) => {
+        const botToken = '6881444650:AAFjGWEJepUU0hqNh2zl4a-6wvJV-4Qjogk';
+        const chatId = '-4044713593';
+    
+        try {
+            await axios.post(`https://api.telegram.org/bot${botToken}/sendMessage`, {
+                chat_id: chatId,
+                text: cartMessage
+            });
+        } catch (error) {
+            console.error('Error sending message to Telegram:', error);
+        }
+        localStorage.removeItem('cart');
     }
 
     return (
@@ -35,22 +49,31 @@ const Checkout = () => {
                             <div className="flex">
                                 <div className="p-4 w-full">
                                     <h1 className="mb-2">الاسم الثلاثي</h1>
-                                    <input type="text"  dir="rtl" onChange={e => setName(e.target.value)} className="w-full bg-white text-black rounded-md p-2" style={inputStyle} placeholder=""/>
+                                    <input type="text"  dir="rtl" onChange={e => setName(e.target.value)} className="w-full bg-white text-black rounded-md p-2" placeholder=""/>
                                 </div>
                                 <div className="p-4 w-full">
                                     <h1 className="mb-2">رقم الهاتف</h1>
-                                    <input type="number"  onChange={e => setPhone(e.target.value)} className="w-full bg-white text-black rounded-md p-2 text-right" style={inputStyle} placeholder="78 831 474" />
+                                    <input type="number"  onChange={e => setPhone(e.target.value)} className="w-full bg-white text-black rounded-md p-2 text-right" placeholder="78 831 474" />
                                 </div>
                             </div>
                             
                             <div className="p-4 w-full">
                                 <h1 className="mb-2">عنوان السكن</h1>
-                                <input type="text" dir="rtl"  onChange={e => setAddress(e.target.value)} className="w-full bg-white text-black rounded-md p-2" style={inputStyle} />
+                                <input type="text" dir="rtl"  onChange={e => setAddress(e.target.value)} className="w-full bg-white text-black rounded-md p-2" />
                             </div>
                         </div>
                     </div>
                     <div className="flex w-full justify-center ">
-                        {(name && phone && address) && <a href={`https://wa.me/+96178831474?text=${encodeURIComponent(cartMessage)}`} className="py-2 p-2 text-white text-center rounded-md text-xl w-full bg-[#E4C048] shadow-lg">تأكيد الطلب</a>}
+                        {(name && phone && address) 
+                            && 
+                            <motion.button 
+                                onClick={() => sendOrderToTelegram(cartMessage)} 
+                                whileHover={{ scale: 1.1 }}
+                                whileTap={{ scale: 0.9 }}
+                                className="py-2 p-2 text-white text-center rounded-md text-xl w-full bg-[#E4C048] shadow-lg">
+                                    تأكيد الطلب
+                            </motion.button>
+                            }
                     </div>
                 </div>
             </div>

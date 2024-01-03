@@ -10,13 +10,7 @@ const Checkout = () => {
     const [phone, setPhone] = useState('')
     const [address, setAddress] = useState('')
 
-    const [total, setTotal] = useState(0)
-
-    useEffect(() => {
-        cart.forEach(p => {
-            setTotal(prevTotal => prevTotal+p.price)
-        })
-    }, [])
+    const total = cart.reduce((prevTotal, p) => prevTotal + p.price, 0);
 
     const cartMessage = cart.map((item, index) => {
         return `${index+1}. ${item.name}\n الفرقة:${item.type}\n الحجم:${item.size}\n الكمية:${item.quantity}\n المبلغ:$${item.price}\n`

@@ -6,7 +6,7 @@ import Link from "next/link"
 import axios from 'axios';
 
 const Checkout = () => {
-    const {cart} = useContext(CartContext)
+    const {cart, setCart} = useContext(CartContext)
     const [name, setName] = useState('')
     const [phone, setPhone] = useState('')
     const [address, setAddress] = useState('')
@@ -30,7 +30,8 @@ const Checkout = () => {
         } catch (error) {
             console.error('Error sending message to Telegram:', error);
         }
-        localStorage.removeItem('cart');
+        localStorage.removeItem('cart')
+        setCart([])
     }
 
     return (
@@ -53,7 +54,7 @@ const Checkout = () => {
                                 </div>
                                 <div className="p-4 w-full">
                                     <h1 className="mb-2">رقم الهاتف</h1>
-                                    <input type="number"  onChange={e => setPhone(e.target.value)} className="w-full bg-white text-black rounded-md p-2 text-right" placeholder="78 831 474" />
+                                    <input type="number"  onChange={e => setPhone(e.target.value)} className="w-full bg-white text-black rounded-md p-2 text-right" placeholder="70 123 456" />
                                 </div>
                             </div>
                             

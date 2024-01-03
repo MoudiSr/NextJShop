@@ -4,13 +4,14 @@ import { useContext, useState, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import Link from "next/link"
 import axios from 'axios';
+import OrderModal from "./OrderModal"
 
 const Checkout = () => {
     const {cart, setCart} = useContext(CartContext)
     const [name, setName] = useState('')
     const [phone, setPhone] = useState('')
     const [address, setAddress] = useState('')
-
+    const [open, setOpen] = useState(false)
 
     const total = cart.reduce((prevTotal, p) => prevTotal + p.price, 0);
 
@@ -30,8 +31,6 @@ const Checkout = () => {
         } catch (error) {
             console.error('Error sending message to Telegram:', error);
         }
-        localStorage.removeItem('cart')
-        setCart([])
     }
 
     return (
@@ -68,7 +67,7 @@ const Checkout = () => {
                         {(name && phone && address) 
                             && 
                             <motion.button 
-                                onClick={() => sendOrderToTelegram(cartMessage)} 
+                                onClick={() => {sendOrderToTelegram(cartMessage);setOpen(true)}} 
                                 whileHover={{ scale: 1.1 }}
                                 whileTap={{ scale: 0.9 }}
                                 className="py-2 p-2 text-white text-center rounded-md text-xl w-full bg-[#E4C048] shadow-lg">
@@ -77,6 +76,7 @@ const Checkout = () => {
                             }
                     </div>
                 </div>
+                <OrderModal open={open} setOpen={setOpen} />
             </div>
             </>
             : 
@@ -85,6 +85,7 @@ const Checkout = () => {
                 <Link href="/" className="text-xl bg-[#00B49F] rounded-md w-full py-8">Return to Home</Link>
             </div>
             }
+            
         </div>
     )
 }

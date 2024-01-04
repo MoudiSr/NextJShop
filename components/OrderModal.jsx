@@ -3,12 +3,22 @@ import { Dialog, Transition } from '@headlessui/react'
 import { ExclamationTriangleIcon } from '@heroicons/react/24/outline'
 import { useContext } from 'react'
 import { CartContext } from '@components/CartProvider'
+import Link from "next/link"
 
 export default function OrderModal({open, setOpen}) {
   
 
-    const cancelButtonRef = useRef(null)
-    const {setCart} = useContext(CartContext)
+  const cancelButtonRef = useRef(null)
+  const {setCart} = useContext(CartContext)
+
+  const calculateDate = () => {
+    const today = new Date();
+    const currentDay = today.getDay();
+    const daysTillSunday = (7 - currentDay) % 7;
+    const deliveryDay = daysTillSunday < 3 ? daysTillSunday + 7 : daysTillSunday;
+    const nextSunday = new Date(today.getFullYear(), today.getMonth(), today.getDate() + deliveryDay);
+    return nextSunday.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+  }
 
   return (
     <Transition.Root show={open} as={Fragment}>
@@ -36,7 +46,7 @@ export default function OrderModal({open, setOpen}) {
               leaveFrom="opacity-100 translate-y-0 sm:scale-100"
               leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
             >
-              <Dialog.Panel className="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg">
+              <Dialog.Panel className="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 w-full">
                 <div className="bg-white px-4 pb-4 pt-5 sm:p-6 sm:pb-4">
                   <div className="sm:flex sm:items-start">
                     <div className="mx-auto flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-green-100 sm:mx-0 sm:h-10 sm:w-10">
@@ -50,23 +60,30 @@ export default function OrderModal({open, setOpen}) {
                         <p className="text-sm text-gray-500">
                           تم ارسال الطلب بنجاح
                         </p>
+                        <p className="text-sm text-gray-500">
+                          سيتم التواصل معكم قريباً
+                        </p>
+                        <p className="text-sm text-gray-500">
+                          {calculateDate()} : تاريخ التوصيل
+                        </p>
                       </div>
                     </div>
                   </div>
                 </div>
                 <div className="bg-gray-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
-                  <button
-                    type="button"
-                    className="mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:mt-0 sm:w-auto"
-                    onClick={() => {
-                        setOpen(false)
-                        localStorage.removeItem('cart')
-                        setCart([])
-                    }}
-                    ref={cancelButtonRef}
-                  >
-                    OK
-                  </button>
+                  <Link href="/shop">
+                    <button
+                      type="button"
+                      className="mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:mt-0 sm:w-auto"
+                      onClick={() => {
+                          setOpen(false)
+                          localStorage.removeItem('cart')
+                      }}
+                      ref={cancelButtonRef}
+                    >
+                      OK
+                    </button>
+                  </Link>
                 </div>
               </Dialog.Panel>
             </Transition.Child>

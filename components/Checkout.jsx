@@ -40,11 +40,11 @@ const Checkout = () => {
                  <>
             <div className="">
                 <div>
-                    <h1 className="text-2xl text-right">
+                    <h1 className="text-2xl text-center pt-8">
                         أدخل المعلومات التالية
                     </h1>
                     
-                    <div className="text-right">
+                    <div className="text-right flex align-center justify-center ">
                         <div className="border-[1px] p-2 rounded-md mt-4 mb-8 bg-[#8966AB]">
                             <div className="flex">
                                 <div className="p-4 w-full">

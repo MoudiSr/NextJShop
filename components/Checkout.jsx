@@ -3,7 +3,7 @@ import { CartContext } from "@components/CartProvider"
 import { useContext, useState, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import Link from "next/link"
-import axios from 'axios';
+import axios from 'axios'; 
 import OrderModal from "./OrderModal"
 
 const Checkout = () => {

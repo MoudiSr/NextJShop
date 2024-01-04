@@ -5,9 +5,11 @@ import { CartContext } from "@components/CartProvider"
 
 const Main = () => {
     const {setCart} = useContext(CartContext)
-    if (localStorage.getItem('cart') === null) {
-        setCart([])
-    }
+    useEffect(() => {
+        if (localStorage.getItem('cart') === null) {
+            setCart([])
+        }
+    }, [])
     redirect("/shop/1")
 }
 

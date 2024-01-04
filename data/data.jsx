@@ -3,7 +3,7 @@ const products = [
         id: 1,
         image: "/assets/images/kamis-",
         inititalName: "قميص",
-        price: 8.5,
+        price: 8.5, 
         has: true,
         cat: "كشفيات",
 

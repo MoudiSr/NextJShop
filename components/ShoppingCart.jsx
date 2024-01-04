@@ -140,10 +140,11 @@ export default function ShoppingCart({open, setOpen}) {
                       <div className="mt-6">
                         <Link
                           href="/checkout"
-                          onClick={() => setOpen(false)}
                           className="flex items-center justify-center rounded-md border border-transparent bg-[#E4C048] px-6 py-3 text-base font-medium text-gray-900 shadow-sm hover:bg-[#E4C048]"
                         >
-                          Checkout
+                          <button onClick={() => setOpen(false)}>
+                            Checkout
+                          </button>
                         </Link>
                       </div>
                       <div className="mt-6 flex justify-center text-center text-sm text-gray-500">

@@ -67,7 +67,7 @@ export default function MobileDialog({mobileMenuOpen, setMobileMenuOpen}) {
                                         <span className='text-xl'>Home</span>
                                     </Link>
                                 </li>
-                                <li className={`py-6 px-2 rounded-md ${pathname == '/shop' ? "bg-gray-100 text-[#8966AB]" : "text-gray-900"}`}>
+                                <li className={`py-6 px-2 rounded-md ${pathname.startsWith("/shop") ? "bg-gray-100 text-[#8966AB]" : "text-gray-900"}`}>
                                     <Link href="/shop" onClick={() => setMobileMenuOpen(false)} className="text-base font-medium flex place-center">
                                         <BsShop className='mr-2 text-2xl' />
                                         <span className='text-xl'>Shop</span>

@@ -79,6 +79,7 @@ export default function OrderModal({open, setOpen}) {
                       onClick={() => {
                           setOpen(false)
                           localStorage.removeItem('cart')
+                          setCart([])
                       }}
                       ref={cancelButtonRef}
                     >

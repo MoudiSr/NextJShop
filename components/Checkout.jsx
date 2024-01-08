@@ -12,6 +12,7 @@ const Checkout = () => {
     const [phone, setPhone] = useState('')
     const [address, setAddress] = useState('')
     const [open, setOpen] = useState(false)
+    const [clicked, setClicked] = useState(false)
 
     const total = cart.reduce((prevTotal, p) => prevTotal + p.price, 0);
 
@@ -36,7 +37,7 @@ const Checkout = () => {
     return (
         <div>
             {cart.length
-                 > 0 ? 
+                 > 0 || clicked === true ? 
                  <>
             <div className="">
                 <div>
@@ -67,7 +68,7 @@ const Checkout = () => {
                         {(name && phone && address) 
                             && 
                             <motion.button 
-                                onClick={() => {sendOrderToTelegram(cartMessage);setOpen(true)}} 
+                                onClick={() => {sendOrderToTelegram(cartMessage);setOpen(true);setClicked(true)}} 
                                 whileHover={{ scale: 1.1 }}
                                 whileTap={{ scale: 0.9 }}
                                 className="py-2 p-2 text-white text-center rounded-md text-xl w-full bg-[#E4C048] shadow-lg">

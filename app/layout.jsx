@@ -31,28 +31,26 @@ const RootLayout = ({ children }) => {
             <html>
                 <CartProvider>
                     <body className='bg-[#76489C]'>
-                        <nav className='flex justify-between bg-[#8966AB] pt-2 shadow-lg'>
+                        <nav className='flex justify-between items-center bg-[#8966AB] p-2 shadow-lg'>
                             <div className='flex'>
-                                <div className='py-2 px-6'>
+                                <div className='py-3 px-6'>
                                     <div className="flex">
                                         <button
                                         type="button"
-                                        className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
                                         onClick={() => setMobileMenuOpen(true)}
                                         >
-                                        <span className="sr-only">Open main menu</span>
-                                        <Bars3Icon className="h-6 w-6 text-white" aria-hidden="true" />
+                                        <Bars3Icon className="h-6 w-6 text-white " aria-hidden="true" />
                                         </button>
                                     </div>
                                     <MobileDialog mobileMenuOpen={mobileMenuOpen} setMobileMenuOpen={setMobileMenuOpen} />
                                 </div>
-                                <div className={`py-2 px-6 ${pathname == "/" ? `bg-[#76489c] rounded-t-md ` : ``} `}>
+                                <div className={`py-3 px-6 text-[1.1rem] ${pathname == "/" ? `activePage` : ``} `}>
                                     <Link href='/'>Home</Link>
                                 </div>
-                                <div className={`py-2 px-6 ${pathname == "/shop/1" || pathname == "/shop/2" || pathname == "/shop/3" ? `bg-[#76489c] rounded-t-md ` : ``} `}>
+                                <div className={`py-3 px-6 text-[1.1rem] ${pathname == "/shop/1" || pathname == "/shop/2" || pathname == "/shop/3" ? `activePage` : ``} `}>
                                     <Link href='/shop'>Shop</Link>
                                 </div>
-                                {pathname == '/checkout' && <div className={`py-2 px-6 ${pathname == "/checkout" ? `bg-[#76489c] rounded-t-md ` : ``} `}>
+                                {pathname == '/checkout' && <div className={`py-3 px-6 text-[1.1rem] ${pathname == "/checkout" ? `activePage` : ``} `}>
                                     <Link href='/checkout'>Checkout</Link>
                                 </div>}
                             </div>

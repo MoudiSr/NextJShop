@@ -8,6 +8,7 @@ import { usePathname } from 'next/navigation'
 import NotCheckout from '@components/NotCheckout'
 import { motion, AnimatePresence } from 'framer-motion'
 import Link from 'next/link'
+import { SpeedInsights } from '@vercel/speed-insights/next';
 
 const metadata = {
     title: "Store",
@@ -76,6 +77,7 @@ const RootLayout = ({ children }) => {
                             
                             </motion.div>
                         </AnimatePresence>
+                        <SpeedInsights />
                     </body>
                 </CartProvider>
             </html>

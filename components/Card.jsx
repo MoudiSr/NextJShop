@@ -10,7 +10,7 @@ const Card = ({id, inititalName, image, price, has}) => {
     const [totalPrice, setTotalPrice] = useState(price)
     const [size, setSize] = useState("M")
     const [type, setType] = useState("كشافة")
-    const [imageSrc, setImageSrc] = useState(has ? image+"3.png" : image+"1.png")
+    const [imageSrc, setImageSrc] = useState(has ? image+"3.jpg" : image+"1.jpg")
     const [animate, setAnimation] = useState(0)
     const [name, setName] = useState(inititalName)
 
@@ -92,25 +92,25 @@ const Card = ({id, inititalName, image, price, has}) => {
                 <div className="flex justify-between mx-8 mb-4 ">
                     <input type="radio" className="bg-[#2e3b72]" name={`type${id}`} value="براعم" onChange={e => {
                         setType(e.target.value);
-                        setImageSrc(image+"1.png");
+                        setImageSrc(image+"1.jpg");
                         {name === "قميص" ? setTotalPrice(6.5) : ""}
                         {id === 6 ? setName("طاقية") : ""}
                     }}/>
                     <input type="radio" className="bg-[#fff200]" name={`type${id}`} value="أشبال" onChange={e => {
                         setType(e.target.value);
-                        setImageSrc(name === "حبسة" ? image + "1.png" : id == 5 ? image + "1.png" : image+"2.png");
+                        setImageSrc(name === "حبسة" ? image + "1.jpg" : id == 5 ? image + "1.jpg" : image+"2.jpg");
                         {name === "قميص" ? setTotalPrice(7.5) : ""}
                         {id === 6 ? setName("طاقية") : ""}
                     }}/>
                     <input type="radio" className="bg-[#128b49]" name={`type${id}`} value="كشافة" onChange={e => {
                         setType(e.target.value);
-                        setImageSrc(name === "حبسة" ? image + "1.png" : id == 5 ? image + "1.png" : image+"3.png");
+                        setImageSrc(name === "حبسة" ? image + "1.jpg" : id == 5 ? image + "1.jpg" : image+"3.jpg");
                         {name === "قميص" ? setTotalPrice(8.5) : ""}
                         {id === 6 ? setName("بيريه") : ""}
                     }} defaultChecked/>
                     <input type="radio" className="bg-[#ed1c24]" name={`type${id}`} value="جوالة" onChange={e => {
                         setType(e.target.value);
-                        setImageSrc(name === "حبسة" ? image + "2.png" : id == 5 ? image + "1.png" : image+"4.png");
+                        setImageSrc(name === "حبسة" ? image + "2.jpg" : id == 5 ? image + "1.jpg" : image+"4.jpg");
                         {name === "قميص" ? setTotalPrice(10) : ""}
                         {id === 6 ? setName("بيريه") : ""}
                     }}/>

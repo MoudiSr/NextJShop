@@ -11,7 +11,7 @@ const Shop = () => {
 
     return (
         <div>
-            <h1 className="text-center text-2xl">{
+            <h1 className="text-center text-2xl m-4">{
                 path == "/shop/1" ? "كشفيات" : path == "/shop/2" ? "كتب" : path == "/shop/3" ? "اكسسوارات" : "404"
             }</h1>
 
@@ -31,6 +31,12 @@ const Shop = () => {
                             redirect("/notfound")
                         }
                     })}
+                    {path == "/shop/2" || path == "/shop/3" ?
+                        <div>
+                            <h1 className="text-5xl mt-[2rem]"><span className="blinking-cursor"></span>..قريباً</h1>
+                        </div>
+                        : ""
+                    }
                 </div>
             </div>
         </div>

@@ -170,3 +170,17 @@ input[type=number] {
   border-radius: 8px;
   box-shadow: inset 0 0 10px 0 rgba(76, 76, 76, 0.2);
 }
+
+.blinking-cursor {
+  display: inline-block;
+  width: 7px; /* Adjust the width as needed */
+  height: .7em;
+  background-color: currentColor;
+  animation: blink 1s step-start infinite;
+}
+
+@keyframes blink {
+  50% {
+      opacity: 0;
+  }
+}

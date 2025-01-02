@@ -64,9 +64,9 @@ export default function OrderModal({open, setOpen}) {
                         <p className="text-sm text-gray-500">
                           سيتم التواصل معكم قريباً
                         </p>
-                        <p className="text-sm text-gray-500">
-                          {calculateDate()} : تاريخ التوصيل
-                        </p>
+                        {/*<p className="text-sm text-gray-500">
+                          {//calculateDate()} : تاريخ التوصيل
+                        </p>*/}
                       </div>
                     </div>
                   </div>

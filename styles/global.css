@@ -103,6 +103,7 @@ input[type=number] {
   border-radius: 50%;
 }
 
+
 @media (min-width: 600px) {
   body {
     background-size: 60%;

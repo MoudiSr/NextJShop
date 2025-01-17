@@ -13,7 +13,7 @@ const Card = ({id, inititalName, image, price, has}) => {
     const [imageSrc, setImageSrc] = useState(has ? image+"3.jpg" : image+"1.jpg")
     const [animate, setAnimation] = useState(0)
     const [name, setName] = useState(inititalName)
-
+    const [success, setSuccess] = useState(false)
     const {cart, setCart} = useContext(CartContext)
    
 
@@ -39,11 +39,11 @@ const Card = ({id, inititalName, image, price, has}) => {
             size: size,
             type: type
         }] : [...cart])
-        const cartButton = document.querySelector(".cart")
-        cartButton.classList.add("shake")
+        
+        setSuccess(true)
         setTimeout(() => {
-            cartButton.classList.remove("shake")
-        }, 500)
+            setSuccess(false)
+        }, 1300)
     }
 
     const [imgIsValid, setImgIsValid] = useState(true);
@@ -127,19 +127,49 @@ const Card = ({id, inititalName, image, price, has}) => {
                         {id === 6 ? setName("بيريه") : ""}
                     }}/>
                 </div>
-                 <motion.a onClick={() => handleAdd()} id="addToCart" className={`flex transition-colors duration-300 ease-in-out items-center justify-center rounded-md border border-transparent ${type == "براعم" ? `bg-[#2e3b72]` : type == "أشبال" ? `bg-[#fff200]` : type == "كشافة" ? `bg-[#128b49]` : `bg-[#ed1c24]`} px-5 py-2.5 text-center font-medium ${type === "أشبال" ? `text-black` : `text-white`} text-xl hover:cursor-pointer `}
+                 <motion.a onClick={() => !success ? handleAdd() : ""} id="addToCart" className={`flex transition-colors duration-300 ease-in-out items-center justify-center rounded-md border border-transparent ${type == "براعم" ? `bg-[#2e3b72]` : type == "أشبال" ? `bg-[#fff200]` : type == "كشافة" ? `bg-[#128b49]` : `bg-[#ed1c24]`} px-5 py-2.5 text-center font-medium ${type === "أشبال" ? `text-black` : `text-white`} text-xl hover:cursor-pointer ${success ? `bg-[#fff] text-black` : ""} `}
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.9 }}
+                    animate={
+                        success
+                            ? {
+                                  x: [0, -10, 10, -10, 10, 0],
+                                  rotate: [0, -5, 5, -5, 5, 0],
+                                  borderColor: "#000",
+                              }
+                            : {
+                                borderColor: "transparent"
+                            }
+                    }
+                    transition={{ duration: 0.5 }}
                  >
-                    <motion.svg xmlns="http://www.w3.org/2000/svg" className="mr-2 h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2" 
-                        
-                    >
-                        <motion.path 
-                            strokeLinecap="round" 
-                            strokeLinejoin="round" 
-                            d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
-                    </motion.svg>
-                    Add to cart
+                    
+                    <AnimatePresence>
+                        {success ? 
+                            <motion.span 
+                                initial={{scale: 0}}
+                                animate={{scale: 1.2}}
+
+                                className="addToCardText text-black">
+                                    Success !!
+                            </motion.span>
+                            :
+                            <motion.div
+                                initial={{opacity: 0}}
+                                animate={{opacity: 1}}
+                                className="flex">
+                                <motion.svg xmlns="http://www.w3.org/2000/svg" className="mr-2 h-6 w-6 addToCardIcon" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2" 
+                                
+                                >
+                                    <motion.path 
+                                        strokeLinecap="round" 
+                                        strokeLinejoin="round" 
+                                        d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                                </motion.svg>
+                                <motion.span className="addToCardText">Add To Cart</motion.span>
+                            </motion.div>
+                        }
+                    </AnimatePresence>
                 </motion.a>
             </div>
         </div>

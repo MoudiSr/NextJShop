@@ -3,7 +3,7 @@ const products = [
         id: 1,
         image: "/assets/images/kamis-",
         inititalName: "قميص",
-        price: 8.5, 
+        price: 10, 
         has: true,
         cat: "كشفيات",
 
@@ -36,7 +36,7 @@ const products = [
         id: 5,
         image: "/assets/images/kofouf-",
         inititalName: "كفوف",
-        price: 2,
+        price: 3,
         has: false,
         cat: "كشفيات"
     },
@@ -48,7 +48,14 @@ const products = [
         has: true,
         cat: "كشفيات"
     },
-    
+    {
+        id: 7,
+        image: "/assets/images/soura-",
+        inititalName: "صورة",
+        price: 1.5,
+        has: false,
+        cat: "كشفيات"
+    },
 ]
 
 export default products;

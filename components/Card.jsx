@@ -102,28 +102,28 @@ const Card = ({id, inititalName, image, price, has}) => {
                         setType(e.target.value);
                         setImageSrc(image+"1.jpg");
                         setImgIsValid(true);
-                        {name === "قميص" ? setTotalPrice(6.5) : ""}
+                        {name === "قميص" ? setTotalPrice(8) : name === "فولار" ? setTotalPrice(1.5) : ""}
                         {id === 6 ? setName("طاقية") : ""}
                     }}/>
                     <input type="radio" className="bg-[#fff200]" name={`type${id}`} value="أشبال" onChange={e => {
                         setType(e.target.value);
                         setImageSrc(name === "حبسة" ? image + "1.jpg" : id == 5 ? image + "1.jpg" : image+"2.jpg");
                         setImgIsValid(true);
-                        {name === "قميص" ? setTotalPrice(7.5) : ""}
+                        {name === "قميص" ? setTotalPrice(9) : name === "فولار" ? setTotalPrice(1.5) : ""}
                         {id === 6 ? setName("طاقية") : ""}
                     }}/>
                     <input type="radio" className="bg-[#128b49]" name={`type${id}`} value="كشافة" onChange={e => {
                         setType(e.target.value);
                         setImageSrc(name === "حبسة" ? image + "1.jpg" : id == 5 ? image + "1.jpg" : image+"3.jpg");
                         setImgIsValid(true);
-                        {name === "قميص" ? setTotalPrice(8.5) : ""}
+                        {name === "قميص" ? setTotalPrice(10) : name === "فولار" ? setTotalPrice(1.5) : ""}
                         {id === 6 ? setName("بيريه") : ""}
                     }} defaultChecked/>
                     <input type="radio" className="bg-[#ed1c24]" name={`type${id}`} value="جوالة" onChange={e => {
                         setType(e.target.value);
                         setImageSrc(name === "حبسة" ? image + "2.jpg" : id == 5 ? image + "1.jpg" : image+"4.jpg");
                         setImgIsValid(true);
-                        {name === "قميص" ? setTotalPrice(10) : ""}
+                        {name === "قميص" ? setTotalPrice(12) : name === "فولار" ? setTotalPrice(2) : ""}
                         {id === 6 ? setName("بيريه") : ""}
                     }}/>
                 </div>

@@ -21,17 +21,17 @@ const Checkout = () => {
     }).join('\n') + `\n${name}\n${address}\n${phone}` + `\n\nالمجموع:${total}$`;
 
     const sendOrderToTelegram = async (cartMessage) => {
-        const botToken = '6881444650:AAFjGWEJepUU0hqNh2zl4a-6wvJV-4Qjogk';
-        const chatId = '-4044713593';
+        //const botToken = '6881444650:AAFjGWEJepUU0hqNh2zl4a-6wvJV-4Qjogk';
+        //const chatId = '-4044713593';
 
-        try {
+        /* try {
             await axios.post(`https://api.telegram.org/bot${botToken}/sendMessage`, {
                 chat_id: chatId,
                 text: cartMessage
             });
         } catch (error) {
             console.error('Error sending message to Telegram:', error);
-        }
+        } */
     }
 
     return (

@@ -6,6 +6,9 @@ import Link from "next/link"
 import axios from 'axios';
 import OrderModal from "./OrderModal"
 
+const botToken = process.env.TELEGRAM_BOT_ACCESS_TOKEN;
+const chatId = process.env.TELEGRAM_CHAT_ID;
+
 const Checkout = () => {
     const { cart, setCart } = useContext(CartContext)
     const [name, setName] = useState('')
@@ -21,17 +24,14 @@ const Checkout = () => {
     }).join('\n') + `\n${name}\n${address}\n${phone}` + `\n\nالمجموع:${total}$`;
 
     const sendOrderToTelegram = async (cartMessage) => {
-        //const botToken = '6881444650:AAFjGWEJepUU0hqNh2zl4a-6wvJV-4Qjogk';
-        //const chatId = '-4044713593';
-
-        /* try {
+        try {
             await axios.post(`https://api.telegram.org/bot${botToken}/sendMessage`, {
                 chat_id: chatId,
                 text: cartMessage
             });
         } catch (error) {
             console.error('Error sending message to Telegram:', error);
-        } */
+        }
     }
 
     return (

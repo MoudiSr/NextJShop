@@ -10,7 +10,7 @@ const Shop = () => {
     console.log(path)
 
     return (
-        <div>
+        <div> 
             <h1 className="text-center text-2xl m-4">{
                 path == "/shop/1" ? "كشفيات" : path == "/shop/2" ? "كتب" : path == "/shop/3" ? "اكسسوارات" : "404"
             }</h1>

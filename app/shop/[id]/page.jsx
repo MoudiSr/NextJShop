@@ -1,5 +1,5 @@
 'use client'
-import Card from "components/Card"
+import Card from "@components/Card"
 import CategoryDropdown from "@components/CategoryDropdown"
 import data from "@data/data"
 import { redirect, usePathname } from "next/navigation"

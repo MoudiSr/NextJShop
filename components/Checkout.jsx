@@ -3,11 +3,7 @@ import { CartContext } from "@components/CartProvider"
 import { useContext, useState, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import Link from "next/link"
-import axios from 'axios';
 import OrderModal from "./OrderModal"
-
-const botToken = process.env.TELEGRAM_BOT_ACCESS_TOKEN;
-const chatId = process.env.TELEGRAM_CHAT_ID;
 
 const Checkout = () => {
     const { cart, setCart } = useContext(CartContext)
@@ -23,12 +19,20 @@ const Checkout = () => {
         return `${index + 1}. ${item.name}\n الفرقة:${item.type}\n الحجم:${item.size}\n الكمية:${item.quantity}\n المبلغ:$${item.price}\n`
     }).join('\n') + `\n${name}\n${address}\n${phone}` + `\n\nالمجموع:${total}$`;
 
-    const sendOrderToTelegram = async (cartMessage) => {
+    const sendOrderToTelegram = async (message) => {
         try {
-            await axios.post(`https://api.telegram.org/bot${botToken}/sendMessage`, {
-                chat_id: chatId,
-                text: cartMessage
+            const response = await fetch('/api/telegram', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ message })
             });
+
+            if (!response.ok) {
+                const errorPayload = await response.json().catch(() => ({}));
+                console.error('Error sending message to Telegram:', errorPayload);
+            }
         } catch (error) {
             console.error('Error sending message to Telegram:', error);
         }

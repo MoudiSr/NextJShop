@@ -7,7 +7,6 @@ import { redirect, usePathname } from "next/navigation"
 const Shop = () => {
     const products = data;
     const path = usePathname();
-    console.log(path)
 
     return (
         <div> 
